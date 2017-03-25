@@ -147,13 +147,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void setPlayerName(View view) {
-        TextView player1TextView = (EditText) findViewById(R.id.name_player1);
-        TextView player2TextView = (EditText) findViewById(R.id.name_player2);
-        player1 = player1TextView.getText().toString();
-        player2 = player2TextView.getText().toString();
-    }
-
     /**
      * Reset all scores and display them.
      */

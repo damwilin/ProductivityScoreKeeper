@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="mainRelativeLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="mainLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="insideLinearLayout">
+        <item name="android:layout_width">@dimen/linear_layout_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="line">
+        <item name="android:layout_marginTop">@dimen/line_margin</item>
+        <item name="android:layout_width">@dimen/line_width</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="button">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginRight">@dimen/button_margin_right_left</item>
+        <item name="android:layout_marginLeft">@dimen/button_margin_right_left</item>
+        <item name="android:layout_marginBottom">@dimen/button_margin_bottom</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:onClick">clicker</item>
+    </style>
+
+    <style name="resButton" parent="button">
+        <item name="android:layout_marginBottom">@dimen/res_button_margin_bottom</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="score">
+        <item name="android:layout_marginBottom">@dimen/score_margin_bottom</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/score_text</item>
+        <item name="android:text">@string/score0</item>
+    </style>
+
+    <style name="nameField">
+        <item name="android:layout_marginBottom">@dimen/name_margin_bottom_top</item>
+        <item name="android:layout_marginTop">@dimen/name_margin_bottom_top</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:hint">@string/set_name</item>
+        <item name="android:inputType">textCapCharacters</item>
+        <item name="android:textSize">@dimen/name_text</item>
+    </style>
+
+</resources>

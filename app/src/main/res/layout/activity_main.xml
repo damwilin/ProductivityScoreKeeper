@@ -1,93 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    style="@style/mainRelativeLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
+    style="@style/mainRelativeLayout"
     tools:context="com.wili.android.productivityscorekeeper.MainActivity">
 
+    <LinearLayout style="@style/mainLinearLayout">
 
-    <LinearLayout
-        style="@style/mainLinearLayout">
-
-
-        <LinearLayout
-            style="@style/insideLinearLayout">
+        <LinearLayout style="@style/insideLinearLayout">
 
             <EditText
-                style="@style/nameField"
-                android:id="@+id/name_player1"/>
-
+                android:id="@+id/name_player1"
+                style="@style/nameField" />
 
             <TextView
-                style="@style/score"
-                android:id="@+id/score_player1"/>
+                android:id="@+id/score_player1"
+                style="@style/score" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_android_player1"
-                android:text="@string/android_learning"/>
+                style="@style/button"
+                android:text="@string/android_learning" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_app_coding_player1"
-                android:text="@string/android_app"/>
+                style="@style/button"
+                android:text="@string/android_app" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_java_player1"
+                style="@style/button"
                 android:text="@string/java_book_reading" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_lazy_player1"
+                style="@style/button"
                 android:text="@string/lazy" />
 
         </LinearLayout>
 
-<View
-    style="@style/line"/>
+        <View style="@style/line" />
 
-        <LinearLayout
-            style="@style/insideLinearLayout">
+        <LinearLayout style="@style/insideLinearLayout">
 
             <EditText
-                style="@style/nameField"
-                android:id="@+id/name_player2"/>
+                android:id="@+id/name_player2"
+                style="@style/nameField" />
 
             <TextView
-                style="@style/score"
-                android:id="@+id/score_player2"/>
+                android:id="@+id/score_player2"
+                style="@style/score" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_android_player2"
-                android:text="@string/android_learning"/>
+                style="@style/button"
+                android:text="@string/android_learning" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_app_coding_player2"
-                android:text="@string/android_app"/>
+                style="@style/button"
+                android:text="@string/android_app" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_java_player2"
-                android:text="@string/java_book_reading"/>
+                style="@style/button"
+                android:text="@string/java_book_reading" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_1h_lazy_player2"
+                style="@style/button"
                 android:text="@string/lazy" />
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 
     <Button
-        style="@style/resButton"
         android:id="@+id/button_reset"
+        style="@style/resButton"
         android:text="@string/res" />
 
 </RelativeLayout>

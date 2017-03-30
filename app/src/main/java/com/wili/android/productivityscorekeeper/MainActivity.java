@@ -13,23 +13,38 @@ import android.widget.Toast;
 
 import static com.wili.android.productivityscorekeeper.R.id.button_1h_android_player1;
 
-public class MainActivity extends AppCompatActivity {
-    /**
-     * variables
-     */
-    int player1Score = 0;
-    int player2Score = 0;
-    String player1;
-    String player2;
-    EditText player1name;
-    EditText player2name;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    //variables
+    private int player1Score = 0;
+    private int player2Score = 0;
+    private String player1;
+    private String player2;
+    private EditText player1name;
+    private EditText player2name;
+    private TextView playerOneScoreView;
+    private TextView playerTwoScoreView;
+    private Button android_player1;
+    private Button android_player2;
+    private Button app_coding_player1;
+    private Button app_coding_player2;
+    private Button java_player1;
+    private Button java_player2;
+    private Button lazy_player1;
+    private Button lazy_player2;
+    private Button reset;
+    private static final String STATE_player1Score = "player1Score";
+    private static final String STATE_player2Score = "player2Score";
+    private static final String STATE_player1Name = "player1";
+    private static final String STATE_player2Name = "player2";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //TextWatchers
         TextWatcher textWatcherForPlayer1 = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -63,22 +78,50 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        //EditTexts
         player1name = (EditText) findViewById(R.id.name_player1);
         player2name = (EditText) findViewById(R.id.name_player2);
+
+        //Adding TextWatchers to EditText
         player1name.addTextChangedListener(textWatcherForPlayer1);
         player2name.addTextChangedListener(textWatcherForPlayer2);
+
+        //TextViews
+        playerOneScoreView = (TextView) findViewById(R.id.score_player1);
+        playerTwoScoreView = (TextView) findViewById(R.id.score_player2);
+
+        //Buttons
+        android_player1 = (Button) findViewById(R.id.button_1h_android_player1);
+        android_player2 = (Button) findViewById(R.id.button_1h_android_player2);
+        app_coding_player1 = (Button) findViewById(R.id.button_1h_app_coding_player1);
+        app_coding_player2 = (Button) findViewById(R.id.button_1h_app_coding_player2);
+        java_player1 = (Button) findViewById(R.id.button_1h_java_player1);
+        java_player2 = (Button) findViewById(R.id.button_1h_java_player2);
+        lazy_player1 = (Button) findViewById(R.id.button_1h_lazy_player1);
+        lazy_player2 = (Button) findViewById(R.id.button_1h_lazy_player2);
+        reset = (Button) findViewById(R.id.button_reset);
+
+        //Setting OnClickListener to buttons
+        android_player1.setOnClickListener(this);
+        android_player2.setOnClickListener(this);
+        app_coding_player1.setOnClickListener(this);
+        app_coding_player2.setOnClickListener(this);
+        java_player1.setOnClickListener(this);
+        java_player2.setOnClickListener(this);
+        lazy_player1.setOnClickListener(this);
+        lazy_player2.setOnClickListener(this);
+        reset.setOnClickListener(this);
+
 
     }
 
 
     public void displayForPlayer1() {
-        TextView playerOneScoreView = (TextView) findViewById(R.id.score_player1);
         playerOneScoreView.setText(String.valueOf(player1Score));
     }
 
     public void displayForPlayer2() {
-        TextView scoreView = (TextView) findViewById(R.id.score_player2);
-        scoreView.setText(String.valueOf(player2Score));
+        playerTwoScoreView.setText(String.valueOf(player2Score));
     }
 
     public void toastMaker(String text) {
@@ -100,10 +143,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void clicker(View view) {
+    public String whoIsWinner() {
+        String winner = null;
+        if (player1Score > player2Score)
+            winner = player1;
+        else if (player1Score == player2Score)
+            winner = player1 + " and " + player2;
+        else
+            winner = player2;
+        return winner;
+    }
 
-        Button switchButton = (Button) view;
-        switch (switchButton.getId()) {
+    public void doResetScores(View view) {
+        toastMaker("Winner is: " + whoIsWinner());
+        player1Score = 0;
+        player2Score = 0;
+        displayForPlayer1();
+        displayForPlayer2();
+        player1name.setText("");
+        player2name.setText("");
+
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
             case button_1h_android_player1:
                 displayAndIncreaseScore("player1", 1);
                 break;
@@ -135,30 +200,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public String whoIsWinner() {
-        String winner = null;
-        if (player1Score > player2Score)
-            winner = player1;
-        else if (player1Score == player2Score)
-            winner = player1 + " and " + player2;
-        else
-            winner = player2;
-        return winner;
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(STATE_player1Score, player1Score);
+        outState.putInt(STATE_player2Score, player2Score);
+        outState.putString(STATE_player1Name, player1);
+        outState.putString(STATE_player2Name, player2);
+        super.onSaveInstanceState(outState);
     }
 
-
-    /**
-     * Reset all scores and display them.
-     */
-    public void doResetScores(View view) {
-        toastMaker("Winner is: " + whoIsWinner());
-        player1Score = 0;
-        player2Score = 0;
+    @Override
+    public void onRestoreInstanceState(Bundle outState) {
+        super.onRestoreInstanceState(outState);
+        player1Score = outState.getInt(STATE_player1Score);
+        player2Score = outState.getInt(STATE_player2Score);
+        player1 = outState.getString(STATE_player1Name);
+        player2 = outState.getString(STATE_player2Name);
         displayForPlayer1();
         displayForPlayer2();
-        player1name.setText("");
-        player2name.setText("");
-
 
     }
+
+
 }

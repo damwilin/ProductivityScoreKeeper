@@ -14,7 +14,6 @@ import android.widget.Toast;
 import static com.wili.android.productivityscorekeeper.R.id.button_1h_android_player1;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     //variables
     private int player1Score = 0;
     private int player2Score = 0;
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String STATE_player1Name = "player1";
     private static final String STATE_player2Name = "player2";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +46,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextWatcher textWatcherForPlayer1 = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -64,12 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextWatcher textWatcherForPlayer2 = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -77,19 +71,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 player2 = editable.toString();
             }
         };
-
         //EditTexts
         player1name = (EditText) findViewById(R.id.name_player1);
         player2name = (EditText) findViewById(R.id.name_player2);
-
         //Adding TextWatchers to EditText
         player1name.addTextChangedListener(textWatcherForPlayer1);
         player2name.addTextChangedListener(textWatcherForPlayer2);
-
         //TextViews
         playerOneScoreView = (TextView) findViewById(R.id.score_player1);
         playerTwoScoreView = (TextView) findViewById(R.id.score_player2);
-
         //Buttons
         android_player1 = (Button) findViewById(R.id.button_1h_android_player1);
         android_player2 = (Button) findViewById(R.id.button_1h_android_player2);
@@ -100,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lazy_player1 = (Button) findViewById(R.id.button_1h_lazy_player1);
         lazy_player2 = (Button) findViewById(R.id.button_1h_lazy_player2);
         reset = (Button) findViewById(R.id.button_reset);
-
         //Setting OnClickListener to buttons
         android_player1.setOnClickListener(this);
         android_player2.setOnClickListener(this);
@@ -111,10 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lazy_player1.setOnClickListener(this);
         lazy_player2.setOnClickListener(this);
         reset.setOnClickListener(this);
-
-
     }
-
 
     public void displayForPlayer1() {
         playerOneScoreView.setText(String.valueOf(player1Score));
@@ -162,8 +148,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         displayForPlayer2();
         player1name.setText("");
         player2name.setText("");
-
-
     }
 
     @Override
@@ -196,7 +180,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_reset:
                 doResetScores(view);
                 break;
-
         }
     }
 
@@ -218,8 +201,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         player2 = outState.getString(STATE_player2Name);
         displayForPlayer1();
         displayForPlayer2();
-
     }
-
-
 }

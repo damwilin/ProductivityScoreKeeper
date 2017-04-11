@@ -70,14 +70,11 @@
                 android:id="@+id/button_1h_lazy_player2"
                 style="@style/button"
                 android:text="@string/lazy" />
-
         </LinearLayout>
-
     </LinearLayout>
 
     <Button
         android:id="@+id/button_reset"
         style="@style/resButton"
         android:text="@string/res" />
-
 </RelativeLayout>

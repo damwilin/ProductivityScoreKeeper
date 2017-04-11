@@ -68,5 +68,4 @@
         <item name="android:inputType">textCapCharacters</item>
         <item name="android:textSize">@dimen/name_text</item>
     </style>
-
 </resources>
